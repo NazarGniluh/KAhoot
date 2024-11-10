@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleee.css') }}">
+</head>
+<body>
+
+<h1> Шапка </h1>
+<nav>
+    <a href="/"> ГОловна сторінка</a>
+    <a href="/about_information"> ПРО ВАС</a>
+</nav>
+{% block content %} {% endblock %}
+<h1> Футер </h1>
+
+
+</body>
+</html>

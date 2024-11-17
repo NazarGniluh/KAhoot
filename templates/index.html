@@ -2,7 +2,15 @@
 
 {% block content %}
 
-<p> МОЯ ПРОДУКЦІЯ ЧИЗЕЗ</p>
+<p> Офіціальний магазин Chromes Clothes</p>
 
+
+{% for quiz in qiuzeerss %}
+    <h2>{{ quiz[1] }}</h2>
+    <p>{{ quiz[2] }}</p>
+    <a href="#"> ПЕРЕЙТИ</a>
+
+
+{% endfor %}
 
 {% endblock %}

@@ -59,7 +59,15 @@ class BDManager:
 
     def get_questions(self, quiz_id):
         cursor = self.conection.cursor()
-        cursor.execute("SELECT * FROM Questions WHERE quiz_id = ?", [quiz_id])
+        cursor.execute("SELECT * FROM Question WHERE quiz_id = ?", [quiz_id])
+        res = cursor.fetchall()
+        cursor.close()
+        return res
+
+
+    def get_options(self, question_id):
+        cursor = self.conection.cursor()
+        cursor.execute("SELECT * FROM Options WHERE question_id = ?", [question_id])
         res = cursor.fetchall()
         cursor.close()
         return res

@@ -36,9 +36,21 @@ def show_question(quizz_id):
     db_manager = BDManager(db_name)
     options = db_manager.get_options(q[0])
 
-    return str(q) + "<br>" + str(options)
+    return render_template("question.html", question=q, options=options, quizz_id=quizz_id)
 
 
+@app.route("/qiuzz/<int:quizz_id>/answer", methods=["POST"])
+def answer_resul(quizz_id):
+    session["quest_index"] += 1
 
+    if len(session["questions"]) <= session["quest_index"]:
+        return redirect(url_for("result", quizz_id=quizz_id))
+    else:
+        return redirect(url_for("show_question", quizz_id=quizz_id))
+
+
+@app.route("/qiuzz/<int:quizz_id>/answer")
+def result(quizz_id):
+    return "Результат"
 
 app.run()

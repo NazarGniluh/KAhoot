@@ -71,3 +71,11 @@ class BDManager:
         res = cursor.fetchall()
         cursor.close()
         return res
+
+
+    def add_options(self, id, question_id, content, is_correct):
+        cursor = self.conection.cursor()
+        cursor.execute(f"INSERT INTO Options(id, question_id, content, is_correct) VALUES (?, ?, ?, ?)",
+                       [id, question_id, content, is_correct])
+        self.conection.commit()
+        cursor.close()

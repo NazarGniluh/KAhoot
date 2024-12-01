@@ -49,7 +49,7 @@ def answer_resul(quizz_id):
         return redirect(url_for("show_question", quizz_id=quizz_id))
 
 
-@app.route("/qiuzz/<int:quizz_id>/answer")
+@app.route("/qiuzz/<int:quizz_id>/result")
 def result(quizz_id):
     return "Результат"
 
